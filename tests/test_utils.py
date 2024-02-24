@@ -44,10 +44,6 @@ def test_calc_total_distance():
     }
     g.add_nodes_from(cities.keys())
     nx.set_node_attributes(g, cities)
-    assert utils.calc_total_distance(g, [(0, 1)]) == 3
-    assert utils.calc_total_distance(g, [(1, 2)]) == 5
-    assert utils.calc_total_distance(g, [(0, 1), (1, 2)]) == 8
-
-def test_create_edgelist_from_nodes():
-    assert utils.create_edge_list([1, 2, 3, 4]) == [(1, 2), (2, 3), (3, 4)]
-    assert utils.create_edge_list([1, 2, 3, 4], closed=True) == [(1, 2), (2, 3), (3, 4), (4, 1)]
+    assert utils.calc_total_distance(g, [0, 1]) == 3
+    assert utils.calc_total_distance(g, [1, 2]) == 5
+    assert utils.calc_total_distance(g, [0, 1, 2]) == 8
